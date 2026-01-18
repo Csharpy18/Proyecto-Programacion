@@ -23,5 +23,49 @@ public class Candidato
         }
     }
     
-
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public void setCedula(int cedula){
+        this.cedula = cedula;
+    }
+    
+    public int getCedula(){
+        return cedula;
+    }
+    public void setPartido(Partido partido){
+        this.partido = partido;
+    }
+    
+    public Partido getPartido(){
+        return partido;
+    }
+    public void setEdad(int edad){
+        this.edad = edad;
+    }
+    
+    public int getEdad(){
+        return edad;
+    }
+    public void setVotos(int cantidadVotos){
+        this.cantidadVotos = cantidadVotos;
+    }
+    
+    public int getVotos(){
+        return cantidadVotos;
+    }
+    public void setCostarricense(boolean esCostarricense){
+        this.costarricense = esCostarricense;
+    }
+    
+    public boolean getCostarricense(){
+        return costarricense;
+    }
+    
+    
 }
