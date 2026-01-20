@@ -23,6 +23,11 @@ public class Candidato
         }
     }
     
+    public String toString(){
+        String mensajeCandidato = "Candidato: " + nombre + "\n Cedula: "+ cedula + "\n edad: " + edad + "\n Partido: " + partido + "\n Cantidad de votos: " + cantidadVotos;
+        return mensajeCandidato;
+    }
+    
     public void setNombre(String nombre){
         this.nombre = nombre;
     }

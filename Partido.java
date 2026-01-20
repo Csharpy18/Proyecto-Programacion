@@ -16,6 +16,11 @@ public class Partido
        this.correoElectronico = correo;
     }
     
+    public String toString(){
+        String mensajePartido = "Partido: " + nombre + "\n Cedula: "+ cedulaJuridica + "\n Presidente: " + nombrePresidente + "\n Correo: " + correoElectronico;
+        return mensajePartido;
+    }
+    
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
