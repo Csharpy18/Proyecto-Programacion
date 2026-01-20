@@ -29,10 +29,6 @@ public class Partido
         return nombre;
     }
     
-    public void setCedula(int cedula){
-        this.cedulaJuridica = cedula;
-    }
-    
     public int getCedula(){
         return cedulaJuridica;
     }

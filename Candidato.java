@@ -36,10 +36,6 @@ public class Candidato
         return nombre;
     }
     
-    public void setCedula(int cedula){
-        this.cedula = cedula;
-    }
-    
     public int getCedula(){
         return cedula;
     }
