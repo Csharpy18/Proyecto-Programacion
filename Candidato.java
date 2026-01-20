@@ -10,16 +10,16 @@ public class Candidato
 
     public Candidato(String nombre, int cedula, Partido partido, int edad, int votos, boolean costarricense)
     {
-        if(costarricense){
-         this.nombre = nombre;
-         this.cedula = cedula;
-         this.partido = partido;
-         this.edad = edad; 
-         this.cantidadVotos = votos;
-         System.out.println("El candidato pudo ser registrado correctamente");
+        if(!costarricense){//no hemos visto excepciones para que tire error
+            System.out.println("No se pudo crear el candidato, debido a que no es costarricense");
         }
         else{
-            System.out.println("El candidato no se pudo registrar porque no es costarricense");
+            this.nombre = nombre;
+             this.cedula = cedula;
+             this.partido = partido;
+             this.edad = edad; 
+             this.cantidadVotos = votos;
+             System.out.println("El candidato pudo ser registrado correctamente");
         }
     }
     
