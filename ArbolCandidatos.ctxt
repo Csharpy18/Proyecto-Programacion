@@ -2,4 +2,14 @@
 comment0.target=ArbolCandidatos
 comment1.params=
 comment1.target=ArbolCandidatos()
-numComments=2
+comment2.params=candidatoNombre
+comment2.target=Candidato\ buscar(java.lang.String)
+comment3.params=
+comment3.target=void\ recorrer()
+comment4.params=nodo
+comment4.target=void\ recorrerRec(ArbolCandidatos.Nodo)
+comment5.params=nodo
+comment5.target=void\ insertar(ArbolCandidatos.Nodo)
+comment6.params=nodo\ raiz
+comment6.target=ArbolCandidatos.Nodo\ insertarRec(ArbolCandidatos.Nodo,\ ArbolCandidatos.Nodo)
+numComments=7
