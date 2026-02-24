@@ -8,7 +8,7 @@ public class ArbolCandidatos
         Nodo der;
         Nodo izq;
         
-        public Nodo(Candidato candidato){
+        private Nodo(Candidato candidato){
             this.candidato = candidato;
             this.izq = this.der = null;
         }
