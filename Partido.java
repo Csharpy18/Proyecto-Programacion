@@ -2,12 +2,12 @@
 public class Partido
 {
     private String nombre;
-    private int cedulaJuridica;
+    private String cedulaJuridica;
     private String colores;
     private String nombrePresidente;
     private String correoElectronico;
 
-    public Partido(String nombre, int cedula, String colores, String presidente, String correo)
+    public Partido(String nombre, String cedula, String colores, String presidente, String correo)
     {
        this.nombre = nombre;
        this.cedulaJuridica = cedula;
@@ -29,7 +29,7 @@ public class Partido
         return nombre;
     }
     
-    public int getCedula(){
+    public String getCedula(){
         return cedulaJuridica;
     }
     

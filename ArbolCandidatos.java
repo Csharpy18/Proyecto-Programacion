@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class ArbolCandidatos 
 {
@@ -59,29 +60,108 @@ public class ArbolCandidatos
     private void recorrerRec(Nodo nodo){
         if (nodo != null){
             recorrerRec(nodo.izq);
-            nodo.toString();
+           System.out.println( nodo.toString());
             recorrerRec(nodo.der);
         }
     }
     
-    public void insertar(Nodo nodo){
-        insertarRec(nodo, raiz);
+    public void insertar(Candidato candidato){
+        insertarRec(candidato, raiz);
     }
-    private Nodo insertarRec(Nodo nodo, Nodo raiz){
-        Nodo nuevo = nodo;
+    private Nodo insertarRec(Candidato candidato, Nodo raiz){
+        Nodo nuevo = new Nodo(candidato);
         Nodo actual = raiz;
-        if(raiz == null){
-            raiz = nuevo;
+        if(actual == null){
+            actual = nuevo;
         }
         else{
-            if(nodo.getCandidato().getNombre().compareToIgnoreCase(nuevo.getCandidato().getNombre())>0){
-                actual.der = insertarRec(nodo, actual.der);
+            if(candidato.getNombre().compareToIgnoreCase(actual.getCandidato().getNombre())>0){
+                actual.der = insertarRec(candidato, actual.der);
             }
             else{
-                nodo.izq = insertarRec(nodo, actual.izq);
+                actual.izq = insertarRec(candidato, actual.izq);
             }
             
         }
-        return nuevo;
+        return actual;
+    }
+
+    public Candidato obtenerGanador(){
+        return obtenerGanadorRec(raiz, null);
+    }
+    private Candidato obtenerGanadorRec(Nodo nodo, Candidato ganador){
+        if (nodo!= null){
+            if(ganador == null || nodo.getCandidato().getVotos()> ganador.getVotos()){
+                ganador = nodo.getCandidato();
+            }
+        ganador = obtenerGanadorRec(nodo.izq, ganador);
+        ganador = obtenerGanadorRec(nodo.der, ganador);
+        }
+        return ganador;
+    }
+    public void candidatoNuevo(ListaPartidos listaPartidos){
+        Scanner scanner = new Scanner(System.in);
+
+        
+
+        boolean tico;
+                    System.out.println("En construcción");//Incluir candidato
+                    System.out.println("Ingrese el nombre del candidato.");
+                    String nombreCandidato = scanner.nextLine();
+                    System.out.println("Ingrese la cedula del candidato.");
+                    String cedulaCandidato = scanner.nextLine();
+                    System.out.println("Ingrese el partido del candidato.");
+                    String partido = scanner.nextLine();
+                    Partido partidoCandidato = listaPartidos.buscPartido(partido);
+                    if(partidoCandidato == null){
+                        System.out.println("El partido no existe, incluya el partido primero");
+                        partidoCandidato = listaPartidos.partidoNuevo();
+                
+                    }
+
+                    System.out.println("El candidato es costarricense?");
+                    String esCostarricense = scanner.nextLine();
+                    while (!esCostarricense.equalsIgnoreCase("Si") &&!esCostarricense.equalsIgnoreCase("No") ){
+                        System.out.println("El candidato es costarricense?");
+                        esCostarricense = scanner.nextLine();
+                        System.out.println("Ingrese si o no");
+                    }
+                    if(esCostarricense.equalsIgnoreCase("Si")){
+                        tico = true;
+                    }
+                    else{
+                        tico = false;
+                    }
+
+                    Candidato nuevoCandidato = new Candidato(nombreCandidato, cedulaCandidato, partidoCandidato, 0, tico);
+                    insertar(nuevoCandidato);
+    }
+
+    public int obtenerVotosPartido(Partido partido){
+        return obtenerVotosPartidoRec(raiz, partido);
+    }
+
+    private int obtenerVotosPartidoRec(Nodo nodo, Partido partido){
+        int votos = 0;
+        if(nodo != null){
+            if(nodo.getCandidato().getPartido().getNombre().equals(partido.getNombre())){
+                votos = nodo.getCandidato().getVotos();
+            }
+        }
+        votos += obtenerVotosPartidoRec(nodo.izq, partido) + obtenerVotosPartidoRec(nodo.der, partido);
+        return votos;
+    }
+
+    public int obtenerVotosTotales(){
+        return obtenerVotosTotalesRec(raiz);
+    }
+    private int obtenerVotosTotalesRec(Nodo nodo){
+        int votos = 0;
+        if(nodo != null){
+            votos = nodo.getCandidato().getVotos();
+            votos += obtenerVotosTotalesRec(nodo.izq) + obtenerVotosTotalesRec(nodo.der);
+
+        }
+        return votos;
     }
 }

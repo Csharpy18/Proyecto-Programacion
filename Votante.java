@@ -1,25 +1,24 @@
 public class Votante
 {
     //Atributos
-    private int cedula;
+    private String cedula;
     private String nombre;
-    private String domicilioElectoral;
+    private Canton domicilioElectoral;
     private boolean votoEmitido;
-    private int edad;
+    
     
     //Constructor
-    public Votante(int cedula, String nombre, String domicilioElectoral, boolean votoEmitido, int edad)
+    public Votante(String cedula, String nombre, Canton domicilioElectoral)
     {
         this.cedula = cedula;
         this.nombre = nombre;
         this.domicilioElectoral = domicilioElectoral;
-        this.votoEmitido = votoEmitido;
-        this.edad = edad;
+        this.votoEmitido = false;
         
     }
 
     //Getters y Setters, doble espaciado entre Getters y Setters de diferentes atributos
-    public int getCedula(){
+    public String getCedula(){
         return cedula;
     }
     
@@ -33,11 +32,11 @@ public class Votante
     }
     
     
-    public String getDomicilioElectoral(){
+    public Canton getDomicilioElectoral(){
         return domicilioElectoral;
     }
     
-    public void setDomicilioElectoral(String domicilioElectoral){
+    public void setDomicilioElectoral(Canton domicilioElectoral){
         this.domicilioElectoral = domicilioElectoral;
     }
     
@@ -50,13 +49,5 @@ public class Votante
         this.votoEmitido = votoEmitido;
     }
     
-    
-    public int getEdad(){
-        return edad;
-    }
-    
-    public void setEdad(int edad){
-        this.edad = edad;
-    }
     
 }

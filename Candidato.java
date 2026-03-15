@@ -2,29 +2,27 @@
 public class Candidato
 {
     private String nombre;
-    private int cedula;
+    private String cedula;
     private Partido partido;
-    private int edad;
     private int cantidadVotos;
     private boolean costarricense;
 
-    public Candidato(String nombre, int cedula, Partido partido, int edad, int votos, boolean costarricense)
+    public Candidato(String nombre, String cedula, Partido partido,int votos, boolean costarricense)
     {
-        if(!costarricense){//no hemos visto excepciones para que tire error
+        if(!costarricense){
             System.out.println("No se pudo crear el candidato, debido a que no es costarricense");
         }
         else{
-            this.nombre = nombre;
+             this.nombre = nombre;
              this.cedula = cedula;
              this.partido = partido;
-             this.edad = edad; 
              this.cantidadVotos = votos;
              System.out.println("El candidato pudo ser registrado correctamente");
         }
     }
     
     public String toString(){
-        String mensajeCandidato = "Candidato: " + nombre + "\n Cedula: "+ cedula + "\n edad: " + edad + "\n Partido: " + partido + "\n Cantidad de votos: " + cantidadVotos;
+        String mensajeCandidato = "Candidato: " + nombre + "\n Cedula: "+ cedula + "\n Partido: " + partido + "\n Cantidad de votos: " + cantidadVotos;
         return mensajeCandidato;
     }
     
@@ -36,7 +34,7 @@ public class Candidato
         return nombre;
     }
     
-    public int getCedula(){
+    public String getCedula(){
         return cedula;
     }
     public void setPartido(Partido partido){
@@ -46,13 +44,7 @@ public class Candidato
     public Partido getPartido(){
         return partido;
     }
-    public void setEdad(int edad){
-        this.edad = edad;
-    }
-    
-    public int getEdad(){
-        return edad;
-    }
+
     public void setVotos(int cantidadVotos){
         this.cantidadVotos = cantidadVotos;
     }

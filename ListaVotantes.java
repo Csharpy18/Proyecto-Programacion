@@ -1,3 +1,4 @@
+
 public class ListaVotantes{
     private Nodo primero;
 
@@ -6,17 +7,17 @@ public class ListaVotantes{
         private Nodo siguiente;
         
 
-        public Nodo(String nombre){
-            
+        public Nodo(Votante votante){
+            this.votante = votante;
             this.siguiente = null;
         }
     }
 
-    public void agregar(String nombre){
-        Nodo nuevo = new Nodo(nombre);
+    public void agregar(Votante votante){//acomodado en orden alfabetico
+        Nodo nuevo = new Nodo(votante);
         Nodo actual = primero;
         if(primero == null){
-            primero = actual;
+            primero = nuevo;
         }
         else{
             while(actual.siguiente != null){
@@ -28,17 +29,17 @@ public class ListaVotantes{
 
     }
 
-    public boolean buscar(String nombre){
+    public Votante buscar(String cedula){
         boolean encontrado = false;
         Nodo actual = primero;
-        Nodo buscado = null;
+        Votante buscado = null;
         while (actual != null && !encontrado){
-            if(nombre.equalsIgnoreCase(actual.votante.getNombre())){
+            if(cedula.equals(actual.votante.getCedula())){
                 encontrado = true;
-                buscado = actual;
+                buscado = actual.votante;
             }
            actual = actual.siguiente;
         }
-        return buscado.votante.getVotoEmitido();
+        return buscado;
     }
 }
